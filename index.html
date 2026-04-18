@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Future Researcher</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      overflow-x: hidden; 
+    }
+    
+    /* Hero Background Animations */
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob { animation: blob 7s infinite; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
+    
+    /* Blinking Cursor for Typing Effect */
+    .typing-cursor { border-right: 3px solid #2563eb; animation: blink 0.7s infinite; }
+    @keyframes blink { 50% { border-color: transparent; } }
+    
+    /* Premium Dot Grid Pattern */
+    .bg-grid-pattern {
+      background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+      background-size: 30px 30px;
+    }
+    
+    /* Preloader Animation */
+    .loader {
+      border-top-color: #2563eb; 
+      animation: spinner 1.5s linear infinite;
+    }
+    @keyframes spinner {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Floating Particles Animation */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(13, 148, 136, 0.15); 
+      animation: floatUp 15s infinite linear;
+      bottom: -20px;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(0.5); opacity: 0; }
+      20% { opacity: 1; scale: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+    
+    /* Radar Ping Animation */
+    @keyframes radar {
+      0% { transform: scale(0.5); opacity: 0.8; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+    .animate-radar { animation: radar 2s infinite ease-out; }
+    .animation-delay-500 { animation-delay: 0.5s; }
+    .animation-delay-1000 { animation-delay: 1s; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased overflow-hidden">
+
+  <div id="preloader" class="fixed inset-0 z-[100] bg-slate-50 flex flex-col items-center justify-center transition-opacity duration-500">
+    <div class="w-16 h-16 border-4 border-slate-200 border-solid rounded-full loader mb-4"></div>
+    <p class="text-slate-500 font-medium tracking-widest text-sm animate-pulse">LOADING EXPERIENCE...</p>
+  </div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm transition-all duration-300 before:absolute before:top-0 before:left-0 before:w-full before:h-[3px] before:bg-gradient-to-r before:from-blue-600 before:to-teal-400">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="#home" class="group flex items-center gap-2">
+          <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+          <span class="text-2xl font-extrabold tracking-tighter transition-transform duration-300 group-hover:scale-105">
+            <span class="text-slate-900">Mehedi</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400">Islam</span>
+          </span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-10">
+          <a href="#home" class="relative text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors duration-300 group">Home
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#about" class="relative text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors duration-300 group">About
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#projects" class="relative text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors duration-300 group">Project & Explorations
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#skills" class="relative text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors duration-300 group">Skills
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#hobby" class="relative text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors duration-300 group">Hobby
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#" onclick="openDreamModal(event)" class="relative text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors duration-300 group cursor-pointer">Dream
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#contact" class="relative text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors duration-300 group">Contact
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </nav>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-50 text-blue-600 hover:bg-blue-50 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/90 backdrop-blur-lg flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    <nav class="flex flex-col space-y-6 text-center">
+      <a href="#home" class="mobile-link text-2xl font-semibold text-slate-800 hover:text-blue-600">Home</a>
+      <a href="#about" class="mobile-link text-2xl font-semibold text-slate-800 hover:text-blue-600">About</a>
+      <a href="#projects" class="mobile-link text-2xl font-semibold text-slate-800 hover:text-blue-600">Project & Explorations</a>
+      <a href="#skills" class="mobile-link text-2xl font-semibold text-slate-800 hover:text-blue-600">Skills</a>
+      <a href="#hobby" class="mobile-link text-2xl font-semibold text-slate-800 hover:text-blue-600">Hobby</a>
+      <a href="#" onclick="openDreamModal(event)" class="mobile-link text-2xl font-semibold text-slate-800 hover:text-blue-600 cursor-pointer">Dream</a>
+      <a href="#contact" class="mobile-link text-2xl font-semibold text-slate-800 hover:text-blue-600">Contact</a>
+    </nav>
+  </div>
+
+  <main class="relative bg-slate-50">
+    
+    <div class="absolute inset-0 bg-grid-pattern opacity-60 z-0"></div>
+    <div id="particles-container" class="absolute inset-0 z-0 pointer-events-none overflow-hidden"></div>
+
+    <section id="home" class="relative min-h-screen flex items-center justify-center">
+      
+      <div class="absolute top-20 left-10 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob z-0 pointer-events-none"></div>
+      <div class="absolute top-40 right-20 w-96 h-96 bg-teal-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-blob animation-delay-2000 z-0 pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-16 w-full mt-24 pb-20 md:pb-0">
+        
+        <div class="w-full md:w-1/2 flex flex-col items-start text-left">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-blue-100/50 border border-blue-200 text-blue-700 font-semibold text-sm mb-6 shadow-sm select-none">
+            Welcome to my portfolio
+          </div>
+          
+          <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 mb-2 tracking-tight leading-[1.1] select-none">
+            Hi, I'm <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-500 pb-2 inline-block">Mehedi Islam</span>
+          </h1>
+          
+          <h2 class="text-2xl md:text-3xl font-semibold text-slate-700 mb-6 h-10 select-none">
+            A <span id="typing-text" class="text-blue-600 typing-cursor pr-1"></span>
+          </h2>
+          
+          <p class="text-slate-600 text-lg mb-8 max-w-lg leading-relaxed font-medium select-none">
+            Bridging the gap between marine science, education, and technology. Passionate about exploring the functional ecology of the ocean while empowering the next generation of students.
+          </p>
+          
+          <div class="flex flex-wrap gap-5 select-none">
+             <a href="https://wa.me/8801945317177" target="_blank" class="flex items-center px-8 py-3.5 bg-gradient-to-r from-blue-600 to-teal-500 text-white font-semibold rounded-full shadow-[0_8px_20px_rgb(37,99,235,0.3)] hover:shadow-[0_10px_25px_rgb(37,99,235,0.5)] hover:-translate-y-1 transition-all duration-300">
+               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                 <path d="M12.03 2.5a9.5 9.5 0 0 0-8.08 14.5l-1.35 4.05 4.19-1.1a9.5 9.5 0 1 0 5.24-17.45zm0 17.1a7.6 7.6 0 0 1-3.88-1.06l-.28-.16-2.5.66.67-2.45-.18-.28a7.6 7.6 0 1 1 6.17 3.29zm3.88-5.32c-.21-.1-1.26-.62-1.46-.69-.2-.07-.35-.1-.5.1s-.56.69-.69.83-.26.16-.47.06a5.83 5.83 0 0 1-1.71-1.05 6.43 6.43 0 0 1-1.18-1.47c-.13-.22-.01-.34.09-.45.09-.1.21-.24.32-.36.1-.12.14-.2.21-.34.07-.14.03-.26-.02-.36-.05-.1-.5-1.21-.69-1.66-.18-.43-.36-.37-.5-.38h-.42c-.15 0-.38.06-.58.28-.2.22-.76.75-.76 1.83s.78 2.12.89 2.27c.1.14 1.55 2.36 3.75 3.3.52.22.93.36 1.25.46.52.17 1 .15 1.38.09.43-.07 1.26-.52 1.44-1.02.18-.5.18-.93.13-1.02-.05-.1-.2-.16-.41-.26z"/>
+               </svg>
+               Let's Connect
+             </a>
+             <a href="#about" class="group flex items-center px-8 py-3.5 bg-white text-slate-800 border-2 border-slate-200 font-semibold rounded-full hover:border-blue-500 hover:text-blue-700 shadow-sm hover:shadow-md transition-all duration-300">
+               Explore My Journey
+               <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+               </svg>
+             </a>
+          </div>
+
+          <div class="flex items-center gap-6 mt-12 border-t border-slate-200/60 pt-6 select-none">
+            <div>
+              <h4 class="text-3xl font-extrabold text-slate-800">4+</h4>
+              <p class="text-xs text-slate-500 font-medium tracking-wide uppercase mt-1">Years Tutoring</p>
+            </div>
+            <div class="w-px h-10 bg-slate-200"></div>
+            <div>
+              <h4 class="text-3xl font-extrabold text-slate-800">10+</h4>
+              <p class="text-xs text-slate-500 font-medium tracking-wide uppercase mt-1">Tech Projects</p>
+            </div>
+            <div class="w-px h-10 bg-slate-200"></div>
+            <div>
+              <h4 class="text-3xl font-extrabold text-slate-800">1</h4>
+              <p class="text-xs text-slate-500 font-medium tracking-wide uppercase mt-1">Startup Built</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 flex justify-center md:justify-end relative mt-16 md:mt-0 select-none">
+           <div id="tilt-card" class="relative w-72 h-[400px] sm:w-80 sm:h-[450px] rounded-[2rem] overflow-hidden border-[8px] border-white shadow-2xl z-10 transition-transform duration-200 ease-out">
+             <img src="/images/unnamed.png" alt="Mehedi Islam" draggable="false" class="w-full h-full object-cover pointer-events-none">
+             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+           </div>
+
+           <div class="absolute -bottom-6 sm:-bottom-8 left-0 sm:left-4 bg-white/90 backdrop-blur-md px-5 py-3.5 rounded-2xl shadow-xl border border-white z-20 animate-[bounce_3s_infinite] min-w-[160px] pointer-events-none">
+             <div id="dynamic-badge" class="flex items-center gap-3 transition-opacity duration-500 opacity-100">
+               <div id="badge-icon" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-xl">💡</div>
+               <div>
+                 <p id="badge-subtitle" class="text-xs text-slate-500 font-medium">Founder</p>
+                 <p id="badge-title" class="text-sm font-bold text-slate-800">Uddom Academic Care</p>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="about" class="relative min-h-screen bg-white py-24 border-t border-slate-100 overflow-hidden select-none">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        
+        <div class="mb-20 md:text-center">
+          <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2">Get to know me</h2>
+          <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400">Mehedi</span></h3>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
+          
+          <div class="w-full lg:w-3/5 flex flex-col">
+            
+            <div class="flex space-x-2 md:space-x-5 border-b border-slate-200 mb-10 overflow-x-auto pb-2 scrollbar-hide">
+              <button onclick="openTab('journey')" id="btn-journey" class="tab-btn pb-3 px-2 md:px-5 text-sm md:text-base font-bold text-blue-600 border-b-2 border-blue-600 whitespace-nowrap transition-all duration-300">My Journey</button>
+              <button onclick="openTab('vision')" id="btn-vision" class="tab-btn pb-3 px-2 md:px-5 text-sm md:text-base font-medium text-slate-500 border-b-2 border-transparent hover:text-slate-700 whitespace-nowrap transition-all duration-300">My Vision</button>
+              <button onclick="openTab('beyond')" id="btn-beyond" class="tab-btn pb-3 px-2 md:px-5 text-sm md:text-base font-medium text-slate-500 border-b-2 border-transparent hover:text-slate-700 whitespace-nowrap transition-all duration-300">Beyond Academics</button>
+            </div>
+
+            <div class="relative overflow-hidden rounded-3xl p-2 z-10">
+              
+              <div id="content-journey" class="tab-content relative animate-[fadeIn_0.5s_ease-in-out]">
+                <div class="absolute -right-4 top-10 text-[12rem] opacity-[0.03] pointer-events-none z-0">🚢</div>
+                
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm mb-10 relative z-10">
+                  <p class="text-slate-600 text-lg leading-relaxed font-medium">
+                    My story is one of resilience and adaptability, deeply rooted in the diverse culture of Bangladesh. Having ancestral ties to Cumilla, being raised in Chattogram, and growing up alongside peers from Feni and Noakhali, I developed a natural fluency in multiple regional dialects—a skill that profoundly aids my grassroots field research today.
+                  </p>
+                </div>
+                
+                <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent z-10">
+                  
+                  <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-blue-600 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
+                      <span class="text-xl">🎓</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-5 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:-translate-y-1">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="font-bold text-slate-900 text-lg">Chittagong University</div>
+                        <div class="text-xs font-semibold text-blue-600 bg-blue-100 px-3 py-1.5 rounded-full whitespace-nowrap shrink-0">2022-Present</div>
+                    </div>
+                      <div class="text-sm text-slate-500 font-medium">BSc in Marine Science. A pivot from a medical dream to a deep passion for functional ocean ecology.</div>
+                    </div>
+                  </div>
+
+                  <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-teal-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
+                      <span class="text-xl">🏛️</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-5 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="font-bold text-slate-800 text-lg leading-tight">Chattogram Cantonment Public College</div>
+                        <div class="text-xs font-medium text-slate-400">2020</div>
+                      </div>
+                      <div class="text-sm text-slate-500">Higher Secondary Certificate (HSC). Built the foundation of rigorous scientific discipline.</div>
+                    </div>
+                  </div>
+
+                  <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-indigo-400 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
+                      <span class="text-xl">🎒</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-5 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="font-bold text-slate-800 text-lg leading-tight">Railway Hospital Colony City Corporation High School</div>
+                        <div class="text-xs font-medium text-slate-400">2018</div>
+                      </div>
+                      <div class="text-sm text-slate-500">Secondary School Certificate (SSC). Early exploration of the wonders of science.</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div id="content-vision" class="tab-content hidden relative animate-[fadeIn_0.5s_ease-in-out]">
+                <div class="absolute right-0 top-10 text-[15rem] opacity-[0.03] pointer-events-none z-0">🌍</div>
+                <div class="relative z-10">
+                  <p class="text-slate-600 text-lg leading-relaxed mb-6 font-medium">
+                    My long-term vision is to pursue higher education and advanced research at a leading university in Europe. I aim to bridge the gap between traditional Marine Biology and modern Web & Automation technologies. My ultimate goal is to develop innovative, AI-driven tools that simplify complex research processes for the global scientific community, leveraging technology to better understand, preserve, and restore our ocean's functional ecology.
+                  </p>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
+                    <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100 shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
+                      <div class="flex items-center gap-3 mb-2"><span class="p-2 bg-white rounded-lg shadow-sm">🔬</span><h5 class="font-bold text-blue-700 text-base italic">Research Goal</h5></div>
+                      <p class="text-sm text-slate-600 font-medium leading-relaxed">Integrating Automation in Marine Mycology and Functional Ecology.</p>
+                    </div>
+                    <div class="p-5 bg-teal-50 rounded-2xl border border-teal-100 shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
+                      <div class="flex items-center gap-3 mb-2"><span class="p-2 bg-white rounded-lg shadow-sm">🤖</span><h5 class="font-bold text-teal-700 text-base italic">Tech Integration</h5></div>
+                      <p class="text-sm text-slate-600 font-medium leading-relaxed">Developing AI-driven tools for rapid genus-level identification of marine fungi.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="content-beyond" class="tab-content hidden relative animate-[fadeIn_0.5s_ease-in-out]">
+                <div class="absolute right-4 top-10 text-[15rem] opacity-[0.03] pointer-events-none z-0">💡</div>
+                <div class="relative z-10">
+                  <p class="text-slate-600 text-lg leading-relaxed mb-6 font-medium">
+                    Through founding Uddom Academic Care, I have gained profound insights into student psychology and mentorship. My mission is to provide the comprehensive guidance that I once missed during my early academic years. Beyond teaching, this venture serves as a practical masterclass in management, marketing, and interactive leadership. Coupled with my hands-on expertise in IT and digital operations, these experiences have shaped me into an adaptable and versatile professional.
+                  </p>
+                  <div class="flex flex-wrap gap-3.5 mt-4">
+                    <span class="px-5 py-2.5 bg-slate-100 text-slate-700 text-xs font-bold rounded-full border border-slate-200 shadow-sm">Educational Leadership</span>
+                    <span class="px-5 py-2.5 bg-slate-100 text-slate-700 text-xs font-bold rounded-full border border-slate-200 shadow-sm">Student Psychology</span>
+                    <span class="px-5 py-2.5 bg-slate-100 text-slate-700 text-xs font-bold rounded-full border border-slate-200 shadow-sm">Institutional Management</span>
+                    <span class="px-5 py-2.5 bg-slate-100 text-slate-700 text-xs font-bold rounded-full border border-slate-200 shadow-sm">Marketing</span>
+                    <span class="px-5 py-2.5 bg-slate-100 text-slate-700 text-xs font-bold rounded-full border border-slate-200 shadow-sm">IT & Logistics</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="w-full lg:w-2/5 grid grid-cols-2 gap-4 auto-rows-max relative">
+            
+            <div class="col-span-2 bg-gradient-to-br from-slate-50 to-slate-100 p-8 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative z-10">
+              <div class="flex items-center gap-3.5 mb-5"><span class="p-2.5 bg-white rounded-xl shadow-sm text-2xl text-blue-600">🗣️</span><h4 class="font-bold text-slate-800 text-lg">Linguistic Agility</h4></div>
+              <div class="flex flex-wrap gap-2.5 relative z-10">
+                <span class="px-4 py-2 bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm font-bold rounded-lg shadow-sm transition-transform hover:-translate-y-1 cursor-default">English (Fluent)</span>
+                <span class="px-4 py-2 bg-emerald-50 border border-emerald-100 text-emerald-700 text-sm font-bold rounded-lg shadow-sm transition-transform hover:-translate-y-1 cursor-default">Bangla (Native)</span>
+                <span class="px-4 py-2 bg-amber-50 border border-amber-100 text-amber-700 text-sm font-bold rounded-lg shadow-sm transition-transform hover:-translate-y-1 cursor-default">Arabic (Read)</span>
+                <span class="px-4 py-2 bg-rose-50 border border-rose-100 text-rose-700 text-sm font-bold rounded-lg shadow-sm transition-transform hover:-translate-y-1 cursor-default">Hindi/Urdu (Verbal)</span>
+              </div>
+              <div class="mt-5 pt-5 border-t border-slate-200/60">
+                <p class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-2.5">Regional Dialects (Native Edge)</p>
+                <div class="flex flex-wrap gap-2.5">
+                  <span class="px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">Chatgaiya</span>
+                  <span class="px-4 py-1.5 bg-teal-50 text-teal-700 text-xs font-bold rounded-md">Cumilla</span>
+                  <span class="px-4 py-1.5 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-md">Noakhali</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="hacker-card" class="col-span-1 bg-slate-900 p-7 rounded-[2rem] border border-slate-800 shadow-xl relative overflow-hidden transition-all duration-300 z-10 cursor-pointer flex flex-col justify-center">
+              <div class="relative z-10">
+                <div class="flex items-center gap-2 mb-3">
+                  <span id="hc-icon-1" class="text-3xl transition-opacity">🔬</span>
+                  <span id="hc-icon-2" class="text-3xl transition-opacity">🤖</span>
+                </div>
+                <h4 id="hc-title" class="font-bold text-white text-xl leading-tight mb-1.5 transition-colors">Scientist by Day</h4>
+                <p id="hc-sub" class="text-slate-400 text-sm transition-colors">Coder & Educator by Night.</p>
+              </div>
+            </div>
+
+            <div class="col-span-1 bg-white p-7 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group z-10">
+              <div class="relative w-14 h-14 mb-5 flex items-center justify-center">
+                <div class="absolute inset-0 rounded-full border-2 border-blue-400 animate-radar z-0"></div>
+                <div class="absolute inset-0 rounded-full border-2 border-blue-400 animate-radar animation-delay-500 z-0"></div>
+                <div class="absolute inset-0 rounded-full border-2 border-blue-400 animate-radar animation-delay-1000 z-0"></div>
+                
+                <div class="relative text-blue-600 bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center z-10 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+              </div>
+              <div class="relative z-10">
+                <p class="text-xs text-slate-400 font-medium uppercase tracking-wide">Base of Operations</p>
+                <h4 class="font-bold text-slate-800 text-lg leading-tight">Chattogram, BD</h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="relative min-h-screen bg-slate-50 py-24 border-t border-slate-200 overflow-hidden select-none">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+        
+        <div class="mb-16 md:text-center">
+          <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2">My Portfolio</h2>
+          <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">Projects & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400">Explorations</span></h3>
+          <p class="mt-4 text-slate-500 font-medium max-w-2xl mx-auto">A showcase of my technical builds, ongoing marine research, and diverse skill sets bridging technology and science.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
+          
+          <a href="#" target="_blank" class="col-span-1 lg:col-span-2 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent z-0"></div>
+            <div class="relative z-10 flex justify-between items-start">
+              <div class="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.34 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.376.202 2.394.1 2.646.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </div>
+              <div class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> Live API
+              </div>
+            </div>
+            <div class="relative z-10 mt-6">
+              <h4 class="text-2xl font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">GitHub Issues Tracker</h4>
+              <p class="text-slate-500 text-sm mb-4 line-clamp-2">A responsive web application built to fetch and manage GitHub issues dynamically using REST APIs. Demonstrates solid understanding of async logic and DOM manipulation.</p>
+              <div class="flex gap-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">Vanilla JS</span>
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">Tailwind CSS</span>
+              </div>
+            </div>
+          </a>
+
+          <div onclick="showComingSoon(this)" class="col-span-1 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute inset-0 bg-gradient-to-b from-teal-50/50 to-transparent z-0"></div>
+            <div class="relative z-10 flex justify-between items-start">
+              <div class="w-14 h-14 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center text-3xl shadow-inner group-hover:scale-110 transition-transform">🍄</div>
+              <div class="text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </div>
+            <div class="relative z-10 mt-4">
+              <h4 class="text-xl font-bold text-slate-800 mb-2">Marine Mycology</h4>
+              <p class="text-slate-500 text-xs mb-3">Initiating early-stage research focusing on the taxonomy and functional roles of marine fungi in coastal ecosystems.</p>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-1 rounded border border-teal-100">Ongoing Research</span>
+            </div>
+            <div class="coming-soon-overlay absolute inset-0 bg-slate-900/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+               <span class="text-3xl mb-2 animate-bounce">🚧</span>
+               <h5 class="text-white font-bold tracking-wide">Will be available soon</h5>
+               <p class="text-slate-400 text-xs mt-1">Research in progress.</p>
+            </div>
+          </div>
+
+          <div onclick="showComingSoon(this)" class="col-span-1 bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group relative overflow-hidden flex flex-col justify-between">
+             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+            <div class="relative z-10 flex justify-between items-start">
+              <div class="w-14 h-14 bg-blue-500 text-white rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:rotate-12 transition-transform">🤖</div>
+            </div>
+            <div class="relative z-10 mt-4">
+              <h4 class="text-xl font-bold text-white mb-2">AI Automation Agent</h4>
+              <p class="text-slate-400 text-xs mb-3">Exploring n8n and Google AI Studio to build intelligent agents capable of streamlining literature reviews and workflows.</p>
+              <div class="flex gap-2">
+                 <span class="text-[10px] font-bold uppercase tracking-wider text-blue-200 bg-blue-900/50 px-2 py-1 rounded border border-blue-800">n8n</span>
+                 <span class="text-[10px] font-bold uppercase tracking-wider text-blue-200 bg-blue-900/50 px-2 py-1 rounded border border-blue-800">Gemini AI</span>
+              </div>
+            </div>
+            <div class="coming-soon-overlay absolute inset-0 bg-blue-950/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+               <span class="text-3xl mb-2 animate-[spin_3s_linear_infinite]">⚙️</span>
+               <h5 class="text-blue-100 font-bold tracking-wide">In Development</h5>
+               <p class="text-blue-300/70 text-xs mt-1">Refining the logic nodes.</p>
+            </div>
+          </div>
+
+          <div onclick="showComingSoon(this)" class="col-span-1 lg:col-span-2 bg-gradient-to-r from-blue-600 to-teal-500 rounded-3xl p-8 border border-transparent shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group relative overflow-hidden flex flex-col justify-center">
+             <div class="absolute right-0 top-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700"></div>
+            <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div class="w-20 h-20 bg-white text-blue-600 rounded-[2rem] flex items-center justify-center text-4xl shadow-xl transform group-hover:-rotate-6 transition-transform shrink-0">💡</div>
+              <div>
+                <div class="flex flex-wrap items-center gap-3 mb-1">
+                  <h4 class="text-2xl sm:text-3xl font-extrabold text-white">Uddom Academic Care</h4>
+                  <span class="bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-white/30 backdrop-blur-sm">Founder</span>
+                </div>
+                <p class="text-blue-50 text-sm max-w-md mt-2">My educational startup dedicated to providing comprehensive academic guidance and mentorship, applying modern management strategies.</p>
+              </div>
+            </div>
+            <div class="coming-soon-overlay absolute inset-0 bg-blue-900/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+               <span class="text-4xl mb-2 animate-bounce">🚀</span>
+               <h5 class="text-white text-lg font-bold tracking-wide">Platform Under Development</h5>
+               <p class="text-blue-200 text-xs mt-1">The official website will be launched soon.</p>
+            </div>
+          </div>
+
+          <div class="col-span-1 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
+             <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0">📈</div>
+                <div>
+                   <h5 class="font-bold text-slate-800 text-sm mb-1.5">Business Strategy & E-commerce</h5>
+                   <p class="text-slate-500 text-xs leading-relaxed">Bridging market demands with strategic planning. Explored <span class="font-semibold text-slate-700">Amazon/eBay Product Hunting</span> & SEO, and analyzed local distribution frameworks for <span class="font-semibold text-slate-700">Renewable Energy</span> (Solar Converters).</p>
+                </div>
+             </div>
+             <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-md flex items-center gap-4 group">
+                <div class="w-12 h-12 rounded-full bg-green-900/50 text-green-400 flex items-center justify-center text-xl shrink-0 group-hover:shadow-[0_0_15px_rgba(74,222,128,0.5)] transition-shadow">🔐</div>
+                <div>
+                   <h5 class="font-bold text-white text-sm">Cybersecurity Fundamentals</h5>
+                   <p class="text-slate-400 text-xs mt-1">Completed a basic course in Ethical Hacking, gaining an understanding of web vulnerabilities, security protocols, and system defense mechanisms.</p>
+                </div>
+             </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    
+    <section id="skills" class="relative py-24 bg-white border-t border-slate-100 overflow-hidden select-none">
+      
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+        
+        <div class="mb-20 md:text-center">
+          <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2">My Arsenal</h2>
+          <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">Skills & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400">Expertise</span></h3>
+          <p class="mt-4 text-slate-500 font-medium max-w-2xl mx-auto">A multidisciplinary toolkit combining full-stack development, workflow automation, scientific research, and strategic leadership.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          
+          <div class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+            
+            <div class="flex items-center gap-4 mb-8 border-b border-slate-100 pb-4">
+              <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shrink-0">💻</div>
+              <div>
+                <h4 class="text-2xl font-bold text-slate-800">Web Technologies</h4>
+                <p class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Full-Stack Development</p>
+              </div>
+            </div>
+            
+            <div class="space-y-5">
+              <div>
+                <div class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>HTML5, CSS3 & Tailwind</span>
+                  <span class="text-blue-600">Advanced</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full w-[90%] relative"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>JavaScript (ES6+)</span>
+                  <span class="text-blue-600">Proficient</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full w-[80%] relative"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>React & Next.js</span>
+                  <span class="text-blue-600">Intermediate</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full w-[65%] relative"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>MongoDB & APIs</span>
+                  <span class="text-blue-600">Intermediate</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full w-[60%] relative"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+            
+            <div class="flex items-center gap-4 mb-8 border-b border-slate-100 pb-4">
+              <div class="w-14 h-14 bg-teal-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shrink-0">⚙️</div>
+              <div>
+                <h4 class="text-2xl font-bold text-slate-800">AI & Automation</h4>
+                <p class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Workflow Optimization</p>
+              </div>
+            </div>
+            
+            <div class="space-y-5">
+              <div>
+                <div class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>n8n Workflows</span>
+                  <span class="text-teal-600">Advanced</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-gradient-to-r from-teal-400 to-teal-500 h-2 rounded-full w-[85%] relative"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>Google AI Studio / Gemini</span>
+                  <span class="text-teal-600">Proficient</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-gradient-to-r from-teal-400 to-teal-500 h-2 rounded-full w-[80%] relative"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>Make.com & Manychat</span>
+                  <span class="text-teal-600">Intermediate</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-gradient-to-r from-teal-400 to-teal-500 h-2 rounded-full w-[70%] relative"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>Prompt Engineering</span>
+                  <span class="text-teal-600">Advanced</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-gradient-to-r from-teal-400 to-teal-500 h-2 rounded-full w-[90%] relative"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+            
+            <div class="flex items-center gap-4 mb-8 border-b border-slate-100 pb-4">
+              <div class="w-14 h-14 bg-amber-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shrink-0">🤝</div>
+              <div>
+                <h4 class="text-2xl font-bold text-slate-800">Soft Skills</h4>
+                <p class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Leadership & Management</p>
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2.5 bg-amber-50 text-amber-700 text-sm font-bold rounded-xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">Educational Leadership</span>
+              <span class="px-4 py-2.5 bg-amber-50 text-amber-700 text-sm font-bold rounded-xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">Strategic Planning</span>
+              <span class="px-4 py-2.5 bg-amber-50 text-amber-700 text-sm font-bold rounded-xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">Mentoring & Guidance</span>
+              <span class="px-4 py-2.5 bg-amber-50 text-amber-700 text-sm font-bold rounded-xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">Project Management</span>
+              <span class="px-4 py-2.5 bg-amber-50 text-amber-700 text-sm font-bold rounded-xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">Event Management</span>
+              <span class="px-4 py-2.5 bg-amber-50 text-amber-700 text-sm font-bold rounded-xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">Interactive Presentations</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+            
+            <div class="flex items-center gap-4 mb-8 border-b border-slate-100 pb-4">
+              <div class="w-14 h-14 bg-indigo-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shrink-0">🔬</div>
+              <div>
+                <h4 class="text-2xl font-bold text-slate-800">Marine Research</h4>
+                <p class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Science & Ecology</p>
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2.5 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">Marine Mycology</span>
+              <span class="px-4 py-2.5 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">Taxonomic Identification</span>
+              <span class="px-4 py-2.5 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">Functional Ecology</span>
+              <span class="px-4 py-2.5 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">Literature Synthesis</span>
+              <span class="px-4 py-2.5 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">Scientific Communication</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+   <section id="hobby" class="relative py-24 bg-white border-t border-slate-100 overflow-hidden select-none">
+      
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        
+        <div class="mb-16 md:text-center">
+          <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2">Beyond the Desk</h2>
+          <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">Hobbies & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400">Lifestyle</span></h3>
+          <p class="mt-4 text-slate-500 font-medium max-w-2xl mx-auto">Here is how I recharge, stay curious, and find new inspiration outside of my academic and technical work.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 border-t-2 border-slate-900 pt-2">
+          
+          <div class="group relative flex items-center justify-between py-6 md:py-8 border-b border-slate-200 cursor-default transition-all duration-500 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-50/80 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out -z-10"></div>
+            <div class="flex items-center gap-5 pl-2 group-hover:pl-6 transition-all duration-500">
+              <span class="text-slate-300 font-mono text-xl font-light group-hover:text-blue-300 transition-colors">01</span>
+              <div>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 group-hover:text-blue-700 transition-colors tracking-tight">Travelling</h4>
+                <p class="text-slate-500 mt-1 text-sm font-medium italic group-hover:text-slate-600">Exploring new places and cultures.</p>
+              </div>
+            </div>
+            <div class="text-slate-100 group-hover:text-blue-500 transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 pr-2">
+              <svg class="w-12 h-12 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2 2 2 0 012 2v.1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+          </div>
+
+          <div class="group relative flex items-center justify-between py-6 md:py-8 border-b border-slate-200 cursor-default transition-all duration-500 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-emerald-50/80 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out -z-10"></div>
+            <div class="flex items-center gap-5 pl-2 group-hover:pl-6 transition-all duration-500">
+              <span class="text-slate-300 font-mono text-xl font-light group-hover:text-emerald-300 transition-colors">02</span>
+              <div>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 group-hover:text-emerald-700 transition-colors tracking-tight">Photography</h4>
+                <p class="text-slate-500 mt-1 text-sm font-medium italic group-hover:text-slate-600">Capturing moments and visuals.</p>
+              </div>
+            </div>
+            <div class="text-slate-100 group-hover:text-emerald-500 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 pr-2">
+              <svg class="w-12 h-12 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 012 2H5a2 2 0 012 2V9z"></path></svg>
+            </div>
+          </div>
+
+          <div class="group relative flex items-center justify-between py-6 md:py-8 border-b border-slate-200 cursor-default transition-all duration-500 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-100 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out -z-10"></div>
+            <div class="flex items-center gap-5 pl-2 group-hover:pl-6 transition-all duration-500">
+              <span class="text-slate-300 font-mono text-xl font-light group-hover:text-slate-400 transition-colors">03</span>
+              <div>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 group-hover:text-slate-800 transition-colors tracking-tight">Tech Device Exploration</h4>
+                <p class="text-slate-500 mt-1 text-sm font-medium italic group-hover:text-slate-600">Testing and tinkering with new gadgets.</p>
+              </div>
+            </div>
+            <div class="text-slate-100 group-hover:text-slate-600 transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 pr-2">
+              <svg class="w-12 h-12 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 002 2H8a2 2 0 002 2v14a2 2 0 002 2z"></path></svg>
+            </div>
+          </div>
+
+          <div class="group relative flex items-center justify-between py-6 md:py-8 border-b border-slate-200 cursor-default transition-all duration-500 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-50/80 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out -z-10"></div>
+            <div class="flex items-center gap-5 pl-2 group-hover:pl-6 transition-all duration-500">
+              <span class="text-slate-300 font-mono text-xl font-light group-hover:text-green-300 transition-colors">04</span>
+              <div>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 group-hover:text-green-700 transition-colors tracking-tight">Gardening</h4>
+                <p class="text-slate-500 mt-1 text-sm font-medium italic group-hover:text-slate-600">Cultivating plants and patience.</p>
+              </div>
+            </div>
+            <div class="text-slate-100 group-hover:text-green-500 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 pr-2">
+              <svg class="w-12 h-12 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253"></path></svg>
+            </div>
+          </div>
+
+          <div class="group relative flex items-center justify-between py-6 md:py-8 border-b border-slate-200 cursor-default transition-all duration-500 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-teal-50/80 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out -z-10"></div>
+            <div class="flex items-center gap-5 pl-2 group-hover:pl-6 transition-all duration-500">
+              <span class="text-slate-300 font-mono text-xl font-light group-hover:text-teal-300 transition-colors">05</span>
+              <div>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 group-hover:text-teal-600 transition-colors tracking-tight">Contact of Nature</h4>
+                <p class="text-slate-500 mt-1 text-sm font-medium italic group-hover:text-slate-600">Spending time outdoors to find peace.</p>
+              </div>
+            </div>
+            <div class="text-slate-100 group-hover:text-teal-500 transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 pr-2">
+              <svg class="w-12 h-12 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+            </div>
+          </div>
+
+          <div class="group relative flex items-center justify-between py-6 md:py-8 border-b border-slate-200 cursor-default transition-all duration-500 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-50/80 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out -z-10"></div>
+            <div class="flex items-center gap-5 pl-2 group-hover:pl-6 transition-all duration-500">
+              <span class="text-slate-300 font-mono text-xl font-light group-hover:text-indigo-300 transition-colors">06</span>
+              <div>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 group-hover:text-indigo-600 transition-colors tracking-tight">Business Exploration</h4>
+                <p class="text-slate-500 mt-1 text-sm font-medium italic group-hover:text-slate-600">Analyzing markets and strategies.</p>
+              </div>
+            </div>
+            <div class="text-slate-100 group-hover:text-indigo-500 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 pr-2">
+              <svg class="w-12 h-12 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            </div>
+          </div>
+
+          <div class="group relative flex items-center justify-between py-6 md:py-8 border-b border-slate-200 cursor-default transition-all duration-500 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-amber-50/80 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out -z-10"></div>
+            <div class="flex items-center gap-5 pl-2 group-hover:pl-6 transition-all duration-500">
+              <span class="text-slate-300 font-mono text-xl font-light group-hover:text-amber-300 transition-colors">07</span>
+              <div>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 group-hover:text-amber-600 transition-colors tracking-tight">New Opportunity Exploration</h4>
+                <p class="text-slate-500 mt-1 text-sm font-medium italic group-hover:text-slate-600">Always looking for the next big thing.</p>
+              </div>
+            </div>
+            <div class="text-slate-100 group-hover:text-amber-500 transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 pr-2">
+              <svg class="w-12 h-12 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
+            </div>
+          </div>
+
+          <div class="group relative flex items-center justify-between py-6 md:py-8 border-b border-slate-200 cursor-default transition-all duration-500 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-rose-50/80 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out -z-10"></div>
+            <div class="flex items-center gap-5 pl-2 group-hover:pl-6 transition-all duration-500">
+              <span class="text-slate-300 font-mono text-xl font-light group-hover:text-rose-300 transition-colors">08</span>
+              <div>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 group-hover:text-rose-600 transition-colors tracking-tight">Friends Gossip</h4>
+                <p class="text-slate-500 mt-1 text-sm font-medium italic group-hover:text-slate-600">Sharing stories, laughs, and good times.</p>
+              </div>
+            </div>
+            <div class="text-slate-100 group-hover:text-rose-500 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 pr-2">
+              <svg class="w-12 h-12 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 012 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 002-2H5a2 2 0 012 2v6a2 2 0 012 2h2v4l.586-.586z"></path></svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+   <section id="contact" class="relative py-24 bg-slate-900 text-white overflow-hidden select-none border-t border-slate-800">
+      
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 bg-gradient-to-r from-blue-600/10 to-teal-500/10 blur-[120px] pointer-events-none z-0"></div>
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none z-0"></div>
+
+      <div class="max-w-5xl mx-auto px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+        
+        <h2 class="text-teal-400 font-bold tracking-widest uppercase text-sm mb-4 flex items-center justify-center gap-2">
+           <span class="w-8 h-[1px] bg-teal-400"></span>
+           What's Next?
+           <span class="w-8 h-[1px] bg-teal-400"></span>
+        </h2>
+        <h3 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">Let's work <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">together.</span></h3>
+        <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-14 font-medium leading-relaxed">
+          I'm currently looking for new opportunities, research collaborations, and exciting projects. Whether you have a question, a proposal, or just want to say hi, my inbox is always open!
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14 w-full max-w-4xl">
+          
+          <a href="mailto:mehediislam0173@gmail.com" class="group relative px-6 py-4 bg-slate-800/40 hover:bg-slate-800 backdrop-blur-md rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 border border-slate-700/50 hover:border-blue-500 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_25px_rgba(59,130,246,0.25)]">
+             <svg class="w-6 h-6 text-slate-400 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+             <span class="font-semibold text-slate-300 group-hover:text-white transition-colors">Email Me</span>
+          </a>
+
+          <a href="https://wa.me/8801945317177" target="_blank" class="group relative px-6 py-4 bg-slate-800/40 hover:bg-slate-800 backdrop-blur-md rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 border border-slate-700/50 hover:border-green-500 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_25px_rgba(34,197,94,0.25)]">
+             <svg class="w-6 h-6 text-slate-400 group-hover:text-green-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+             <span class="font-semibold text-slate-300 group-hover:text-white transition-colors">WhatsApp</span>
+          </a>
+
+          <a href="https://m.me/mehedi.islam.334839" target="_blank" class="group relative px-6 py-4 bg-slate-800/40 hover:bg-slate-800 backdrop-blur-md rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 border border-slate-700/50 hover:border-purple-500 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]">
+             <svg class="w-6 h-6 text-slate-400 group-hover:text-purple-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.3 2.246.464 3.443.464 6.627 0 12-4.974 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26 6.559-6.963 3.13 3.26 5.888-3.26-6.559 6.963z"/></svg>
+             <span class="font-semibold text-slate-300 group-hover:text-white transition-colors">Messenger</span>
+          </a>
+
+          <a href="#" target="_blank" class="group relative px-6 py-4 bg-slate-800/40 hover:bg-slate-800 backdrop-blur-md rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 border border-slate-700/50 hover:border-slate-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
+             <svg class="w-6 h-6 text-slate-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+             <span class="font-semibold text-slate-300 group-hover:text-white transition-colors">GitHub</span>
+          </a>
+
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+           
+           <a href="#" download class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105 transition-all duration-300 w-full sm:w-auto">
+              <svg class="w-5 h-5 mr-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              Download Full Resume
+           </a>
+
+           <div class="group relative px-6 py-4 bg-slate-800/30 backdrop-blur-md rounded-full flex items-center justify-center gap-3 border border-slate-800 opacity-70 cursor-not-allowed w-full sm:w-auto">
+              <svg class="w-5 h-5 text-slate-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span class="font-semibold text-slate-500">LinkedIn</span>
+              
+              <div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold py-1.5 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-lg translate-y-2 group-hover:translate-y-0 z-50">
+                Profile Coming Soon
+                <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-blue-600 rotate-45"></div>
+              </div>
+           </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="bg-slate-950 py-10 border-t border-slate-900 text-center select-none relative z-10">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        
+        <div class="flex flex-col items-center md:items-start">
+           <h4 class="text-slate-300 font-bold text-lg tracking-wide mb-1">Mehedi Islam</h4>
+           <p class="text-slate-500 text-sm font-medium">
+             &copy; 2026. All rights reserved.
+           </p>
+        </div>
+
+        <div class="flex items-center gap-2 px-5 py-2.5 bg-slate-900 rounded-full border border-slate-800 shadow-inner">
+           <span class="relative flex h-3 w-3">
+             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+             <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+           </span>
+           <span class="text-slate-400 text-xs font-bold tracking-wider uppercase">Based in Chattogram, BD</span>
+        </div>
+
+        <a href="#home" class="p-3.5 bg-slate-900 hover:bg-blue-600 text-slate-400 hover:text-white rounded-xl border border-slate-800 hover:border-blue-500 transition-all duration-300 shadow-sm cursor-pointer group">
+           <svg class="w-5 h-5 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+        </a>
+
+      </div>
+    </footer>
+  </main>
+
+  <div id="dream-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="relative bg-black border border-slate-800 p-10 md:p-16 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)] max-w-md w-full mx-4 transform scale-95 transition-transform duration-500 text-center flex flex-col items-center justify-center overflow-hidden">
+      
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 pointer-events-none z-0"></div>
+      
+      <span class="text-5xl mb-6 relative z-10 animate-pulse text-slate-500">🔒</span>
+      
+      <h3 class="text-2xl font-bold text-white tracking-widest uppercase mb-3 relative z-10 font-mono">Classified</h3>
+      <p class="text-slate-400 font-medium tracking-wide relative z-10 text-sm">Not willing to reveal.</p>
+      
+      <button onclick="closeDreamModal()" class="mt-10 px-8 py-2.5 bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 rounded-full font-bold uppercase tracking-wider text-xs transition-all relative z-10 border border-slate-700 shadow-sm hover:shadow-md cursor-pointer">
+        Return
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // 1. Preloader Logic
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('opacity-0');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+          document.body.classList.remove('overflow-hidden'); 
+        }, 500);
+      }, 800);
+    });
+
+    // 2. Mobile Menu Logic
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.classList.add('overflow-hidden'); 
+        menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); 
+      } else {
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); 
+      }
+    }
+
+    mobileBtn.addEventListener('click', toggleMenu);
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) toggleMenu();
+      });
+    });
+
+    // 3. Typing Effect
+    const texts = [
+      "Marine Biology Enthusiast.", 
+      "Founder, Uddom Academic Care.", 
+      "Web & Automation Explorer."
+    ];
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+    let isDeleting = false;
+
+    (function type() {
+      if (count === texts.length) { count = 0; }
+      currentText = texts[count];
+      
+      if (isDeleting) {
+        letter = currentText.slice(0, --index);
+      } else {
+        letter = currentText.slice(0, ++index);
+      }
+
+      document.getElementById('typing-text').textContent = letter;
+      let typeSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && letter.length === currentText.length) {
+        typeSpeed = 2000; 
+        isDeleting = true;
+      } else if (isDeleting && letter.length === 0) {
+        isDeleting = false;
+        count++;
+        typeSpeed = 500; 
+      }
+      setTimeout(type, typeSpeed);
+    }());
+
+    // 4. Dynamic Badge
+    const badgeData =[
+        {icon: '💡', subtitle: 'Founder', title: 'Uddom Academic Care' },
+        {icon: '📚', subtitle: 'Passionate', title: 'Educator & Researcher' },
+        {icon: '🚀', subtitle: 'Web & AI', title: 'Tech Explorer' },
+    ];
+    let badgeIndex = 0;
+    const dynamicBadge = document.getElementById('dynamic-badge');
+    const badgeIcon = document.getElementById('badge-icon');
+    const badgeSubtitle = document.getElementById('badge-subtitle');
+    const badgeTitle = document.getElementById('badge-title');
+
+    setInterval(() => {
+        dynamicBadge.classList.replace('opacity-100', 'opacity-0'); 
+        setTimeout(() => {
+            badgeIndex = (badgeIndex + 1) % badgeData.length;
+            badgeIcon.textContent = badgeData[badgeIndex].icon;
+            badgeSubtitle.textContent = badgeData[badgeIndex].subtitle;
+            badgeTitle.textContent = badgeData[badgeIndex].title;
+            dynamicBadge.classList.replace('opacity-0', 'opacity-100'); 
+        }, 500);
+    }, 3500);
+
+    // 5. Particles Background
+    const particlesContainer = document.getElementById('particles-container');
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      const size = Math.random() * 12 + 4; 
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${Math.random() * 15 + 10}s`; 
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+      particlesContainer.appendChild(particle);
+    }
+
+    // 6. Hero 3D Tilt Card
+    const tiltCard = document.getElementById('tilt-card');
+    tiltCard.addEventListener('mousemove', (e) => {
+      const rect = tiltCard.getBoundingClientRect();
+      const x = e.clientX - rect.left; 
+      const y = e.clientY - rect.top;  
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -12; 
+      const rotateY = ((x - centerX) / centerX) * 12;
+      tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    
+    tiltCard.addEventListener('mouseleave', () => {
+      tiltCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      tiltCard.style.transition = 'transform 0.5s ease-out';
+    });
+    
+    tiltCard.addEventListener('mouseenter', () => {
+      tiltCard.style.transition = 'none'; 
+    });
+
+    // 7. Interactive Tabs Logic for About Section
+    function openTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('text-blue-600', 'border-blue-600', 'font-bold');
+        btn.classList.add('text-slate-500', 'border-transparent', 'font-medium');
+      });
+      
+      document.getElementById('content-' + tabName).classList.remove('hidden');
+      const activeBtn = document.getElementById('btn-' + tabName);
+      activeBtn.classList.remove('text-slate-500', 'border-transparent', 'font-medium');
+      activeBtn.classList.add('text-blue-600', 'border-blue-600', 'font-bold');
+    }
+
+    // 8. Add Particles to Bento grid on hover
+    const bentoParticlesContainer = document.getElementById('bento-particles-container');
+    if(bentoParticlesContainer) {
+        const bentoCards = document.querySelectorAll('#about .col-span-2, #about .col-span-1');
+        bentoCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                for (let i = 0; i < 8; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    const size = Math.random() * 8 + 2;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.background = Math.random() > 0.5 ? 'rgba(37, 99, 235, 0.1)' : 'rgba(13, 148, 136, 0.1)';
+                    particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                    particle.style.animationDelay = `${Math.random() * 3}s`;
+                    bentoParticlesContainer.appendChild(particle);
+                    particle.addEventListener('animationend', () => { particle.remove(); });
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                const particles = bentoParticlesContainer.querySelectorAll('.particle');
+                particles.forEach(p => p.remove());
+            });
+        });
+    }
+
+    // 9. Hacker Terminal Scramble Effect
+    const hackerCard = document.getElementById('hacker-card');
+    const hcTitle = document.getElementById('hc-title');
+    const hcSub = document.getElementById('hc-sub');
+    const hcIcon1 = document.getElementById('hc-icon-1');
+    const hcIcon2 = document.getElementById('hc-icon-2');
+
+    if(hackerCard) {
+        const originalTitle = hcTitle.innerText;
+        const originalSub = hcSub.innerText;
+        const hackerTitle = "> sudo run_bio";
+        const hackerSub = "> init_automation..";
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+        let scrambleInterval = null;
+
+        function scrambleText(element, targetText, duration = 30) {
+          let iteration = 0;
+          clearInterval(scrambleInterval);
+          scrambleInterval = setInterval(() => {
+            element.innerText = targetText.split("")
+              .map((letter, index) => {
+                if(index < iteration) { return targetText[index]; }
+                return chars[Math.floor(Math.random() * chars.length)];
+              }).join("");
+            if(iteration >= targetText.length){ clearInterval(scrambleInterval); }
+            iteration += 1 / 2;
+          }, duration);
+        }
+
+        hackerCard.addEventListener('mouseenter', () => {
+          hackerCard.classList.replace('bg-slate-900', 'bg-black');
+          hcTitle.classList.replace('text-white', 'text-green-400');
+          hcTitle.classList.add('font-mono');
+          hcSub.classList.replace('text-slate-400', 'text-green-600');
+          hcSub.classList.add('font-mono');
+          hcIcon1.style.opacity = '0';
+          hcIcon2.style.opacity = '0';
+          scrambleText(hcTitle, hackerTitle);
+          setTimeout(() => hcSub.innerText = hackerSub, 300);
+        });
+
+        hackerCard.addEventListener('mouseleave', () => {
+          clearInterval(scrambleInterval);
+          hackerCard.classList.replace('bg-black', 'bg-slate-900');
+          hcTitle.classList.replace('text-green-400', 'text-white');
+          hcTitle.classList.remove('font-mono');
+          hcSub.classList.replace('text-green-600', 'text-slate-400');
+          hcSub.classList.remove('font-mono');
+          hcIcon1.style.opacity = '1';
+          hcIcon2.style.opacity = '1';
+          hcTitle.innerText = originalTitle;
+          hcSub.innerText = originalSub;
+        });
+    }
+
+    // 10. Coming Soon Overlay Function
+    function showComingSoon(element) {
+       const overlay = element.querySelector('.coming-soon-overlay');
+       if(overlay) {
+          overlay.classList.remove('opacity-0', 'pointer-events-none');
+          setTimeout(() => {
+             overlay.classList.add('opacity-0', 'pointer-events-none');
+          }, 2500);
+       }
+    }
+
+    // 11. SECRET DREAM MODAL LOGIC
+    function openDreamModal(event) {
+      event.preventDefault(); 
+      const modal = document.getElementById('dream-modal');
+      const modalContent = modal.querySelector('div');
+      
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-95');
+      modalContent.classList.add('scale-100');
+    }
+
+    function closeDreamModal() {
+      const modal = document.getElementById('dream-modal');
+      const modalContent = modal.querySelector('div');
+      
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+    }
+  </script>
+</body>
+</html>
