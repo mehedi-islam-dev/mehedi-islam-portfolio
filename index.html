@@ -83,13 +83,21 @@
     <div class="max-w-6xl mx-auto px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
-        <a href="#home" class="group flex items-center gap-2">
-          <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+       <a href="#home" class="group flex items-center gap-2">
+          <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
           </svg>
-          <span class="text-2xl font-extrabold tracking-tighter transition-transform duration-300 group-hover:scale-105">
-            <span class="text-slate-900">Mehedi</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400">Islam</span>
-          </span>
+
+          <div class="relative ml-1">
+            <svg class="absolute -top-2.5 -left-1 w-6 h-6 text-slate-800 drop-shadow-sm transform -rotate-12 group-hover:rotate-0 group-hover:-translate-y-0.5 transition-all duration-300 z-10" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+              <path d="M11.5 13.5l-4.5-2.5v3.5l4.5 2.5 4.5-2.5v-3.5l-4.5 2.5z" opacity="0.9"/>
+            </svg>
+            
+            <span class="text-2xl font-extrabold tracking-tighter transition-transform duration-300 group-hover:scale-105 inline-block">
+              <span class="text-slate-900">Mehedi</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400">Islam</span>
+            </span>
+          </div>
         </a>
 
         <nav class="hidden md:flex items-center space-x-10">
